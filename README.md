@@ -6,6 +6,8 @@ Connected accounts that you no longer need or have been Not completely registere
 
 Run the code to http Web mod http://localhost/connected-account-stripe-del/index.html
 
+GO to Links: https://ghepes.github.io/delete-stripe-connected-account/connected-account-stripe-del/index.html
+
 ![alt text](image.png)
 
 
