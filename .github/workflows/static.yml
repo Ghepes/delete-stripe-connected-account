@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '/connected-account-stripe-del/.'
+          path: 'connected-account-stripe-del/.'
       - name: Deploy to GitHub Ghepes Pages
         id: deployment
         uses: actions/deploy-pages@v4
