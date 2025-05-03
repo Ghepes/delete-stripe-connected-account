@@ -4,7 +4,7 @@
   It is a script that helps you delete connected accounts from the stripe list.
 Connected accounts that you no longer need or have been Not completely registered, now you can delete them with this code html by entering only the stripe Secret Key and Connected account ID.
 
-Run the code to http Web form http://localhost/connected-account-stripe-del/index.html
+Run the code to http Web mod http://localhost/connected-account-stripe-del/index.html
 
 ![alt text](image.png)
 
