@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Delete Stripe Connected Account</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; }
+    input, button { width: 100%; margin-bottom: 1rem; padding: 0.5rem; font-size: 1rem; }
+    pre { background: #f0f0f0; padding: 1rem; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h2>🧨 Delete Stripe Connected Account</h2>
+
+  <label for="secretKey">Stripe Secret Key:</label>
+  <input id="secretKey" type="password" placeholder="sk_live_..." />
+
+  <label for="accountId">Connected Account ID:</label>
+  <input id="accountId" type="text" placeholder="acct_..." />
+
+  <button onclick="deleteAccount()">Delete Account</button>
+
+  <pre id="responseArea">🔔 Response will appear here...</pre>
+
+  <script>
+    async function deleteAccount() {
+      const key = document.getElementById('secretKey').value.trim();
+      const account = document.getElementById('accountId').value.trim();
+      const responseArea = document.getElementById('responseArea');
+
+      if (!key || !account) {
+        responseArea.textContent = '⚠️ Please fill in both fields.';
+        return;
+      }
+
+      try {
+        const res = await fetch(`https://api.stripe.com/v1/accounts/${account}`, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${key}`
+          }
+        });
+
+        const data = await res.json();
+        responseArea.textContent = JSON.stringify(data, null, 2);
+      } catch (err) {
+        responseArea.textContent = '❌ Error: ' + err.message;
+      }
+    }
+  </script>
+</body>
+</html>
